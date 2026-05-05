@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!-- 隱藏的 YouTube 播放器 (音樂) -->
+    <!-- 隱藏的 YouTube 播放器 -->
     <div id="youtube-player" style="display:none;">
         <iframe id="video-music" width="0" height="0" src="" frameborder="0" allow="autoplay"></iframe>
     </div>
@@ -32,11 +32,11 @@
             <button class="tab active" data-tab="love-letter"><span>❤️</span> Love Letter</button>
             <button class="tab" data-tab="music"><span>🎵</span> Music</button>
             <button class="tab" data-tab="notes"><span>📝</span> Notes</button>
-            <button class="tab" data-tab="gallery"><span>🌷</span> Gallery</button>
+            <!-- Gallery Tab 已刪除 -->
         </div>
 
         <div class="content-area">
-            <!-- 情書內容 -->
+            <!-- 情書 -->
             <div class="tab-content active" id="love-letter">
                 <h2>My Dearest</h2>
                 <div class="letter" id="loveLetter">
@@ -64,31 +64,21 @@
                 <h2>Songs for you</h2>
                 <div class="song">
                     <div class="song-icon">🎵</div>
-                    <div class="song-info"><h4>Your Birthday Song</h4><p>Playing in the background...</p></div>
+                    <div class="song-info"><h4>Your Birthday BGM</h4><p>Playing automatically...</p></div>
                 </div>
             </div>
 
+            <!-- Notes 內容已更新 -->
             <div class="tab-content" id="notes">
                 <h2>Some reminders</h2>
-                <div class="note"><p>Take care always</p></div>
-                <div class="note"><p>Eat on time</p></div>
-                <div class="note"><p>Happy 18th Birthday!</p></div>
+                <div class="note"><p>日日開開心心</p></div>
+                <div class="note"><p>飲多啲熱水</p></div>
+                <div class="note"><p>18歲生日大快樂</p></div>
             </div>
-
-            <div class="tab-content" id="gallery">
-                <h2>Flowers for you</h2>
-                <div class="gallery">
-                    <p style="text-align: center; color: #888; font-style: italic; width: 100%;">
-                        More memories to be added soon...
-                    </p>
-                </div>
-            </div>
+            
+            <!-- Gallery Content 已刪除 -->
         </div>
     </div>
-
-    <!-- 靜態飄浮裝飾 (JS會再生成動態的) -->
-    <div class="heart" style="top: 10%; left: 5%;">❤️</div>
-    <div class="teddy-bear" style="bottom: 10%; right: 5%;">🧸</div>
 
     <script src="./script.js"></script>
 </body>
