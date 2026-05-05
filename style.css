@@ -87,17 +87,23 @@ body {
 }
 
 /* 相簿：維持原格式比例但填滿正方形 */
-.photo-grid {
+/* Gallery Tab */
+.photo {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
 }
 
 .photo-item {
-    aspect-ratio: 1/1;
-    overflow: hidden;
     border-radius: 10px;
-    border: 3px solid white;
+    overflow: hidden;
+    height: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+    transform: scale(1.05);
 }
 
 .photo-item img {
