@@ -6,7 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitPassword = document.getElementById('submitPassword');
 
     submitPassword.addEventListener('click', function() {
-        if (passwordInput.value.toLowerCase() === 'Kitty0506') {
+        // 你可以喺下面呢行改密碼
+        if (passwordInput.value.toLowerCase() === 'kitty0506') { 
+            
+            // 啟動隱藏音樂
+            const musicIframe = document.getElementById('video-music');
+            musicIframe.src = "https://www.youtube.com/embed/VRpzJabYlQQ?autoplay=1";
+
             passwordModal.style.opacity = '0';
             setTimeout(() => {
                 passwordModal.style.display = 'none';
@@ -31,22 +37,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // 支援 Enter 鍵
     passwordInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             submitPassword.click();
         }
     });
 
+    // Tab 切換邏輯
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
     
     tabs.forEach(tab => {
         tab.addEventListener('click', function() {
             const targetTab = this.getAttribute('data-tab');
-            
             tabs.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
-            
             tabContents.forEach(content => {
                 content.classList.remove('active');
                 if (content.id === targetTab) content.classList.add('active');
@@ -54,11 +60,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // 點擊信封展開
     const loveLetter = document.getElementById('loveLetter');
-    loveLetter.addEventListener('click', function() {
-        this.classList.toggle('expanded');
-    });
+    if (loveLetter) {
+        loveLetter.addEventListener('click', function() {
+            this.classList.toggle('expanded');
+        });
+    }
 
+    // 生成動態飄浮心心同埋熊仔
     function addFloatingElements() {
         for (let i = 0; i < 15; i++) {
             const heart = document.createElement('div');
