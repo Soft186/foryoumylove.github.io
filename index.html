@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <title>For My Love - 曉晴 18歲生日快樂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+    <!-- 隱藏的 YouTube 播放器 (音樂) -->
+    <div id="youtube-player" style="display:none;">
+        <iframe id="video-music" width="0" height="0" src="" frameborder="0" allow="autoplay"></iframe>
+    </div>
+
     <div class="password-modal" id="passwordModal">
         <div class="password-content">
             <h2>Enter the secret code</h2>
@@ -26,21 +29,14 @@
 
     <div class="container" id="mainContent" style="display: none;">
         <div class="tabs">
-            <button class="tab active" data-tab="love-letter">
-                <span>❤️</span> Love Letter
-            </button>
-            <button class="tab" data-tab="music">
-                <span>🎵</span> Music
-            </button>
-            <button class="tab" data-tab="notes">
-                <span>📝</span> Notes
-            </button>
-            <button class="tab" data-tab="gallery">
-                <span>🌷</span> Gallery
-            </button>
+            <button class="tab active" data-tab="love-letter"><span>❤️</span> Love Letter</button>
+            <button class="tab" data-tab="music"><span>🎵</span> Music</button>
+            <button class="tab" data-tab="notes"><span>📝</span> Notes</button>
+            <button class="tab" data-tab="gallery"><span>🌷</span> Gallery</button>
         </div>
 
         <div class="content-area">
+            <!-- 情書內容 -->
             <div class="tab-content active" id="love-letter">
                 <h2>My Dearest</h2>
                 <div class="letter" id="loveLetter">
@@ -49,91 +45,51 @@
                         <span>👇 Click to open</span>
                     </div>
                     <div class="letter-content">
-                        <div id="loveLetter" class="envelop">
-                            <p>Hey 親愛的曉晴：</p>
-                            <p>你近來好嗎？今天是5月6號，相傳今日係一個大大大日子，你知唔知係咩呢？</p>
-                            <p>冇錯，就係你大名鼎鼎 <strong>KITTY LAM</strong> 嘅18歲生日！！！！！</p>
-                            <p style="color: #ff4d4d; font-weight: bold;">祝你18歲成年生日快樂呀！！！！！！！！</p>
-                            <p>即使成年之前嘅你幽默得嚟又傻傻地，但我堅信，坐喺你隔離嘅我日日都含情脈脈咁望住你㗎😋</p>
-                            <p>你18歲之後嘅人生一定會一帆風順心想事成，唔會再有麻煩事煩到你！！！！</p>
-                            <p>好似識咗你之後我打電話嘅程度直線上升（？？）每次一call就係冇半個鐘唔使cut咁樣。雖然我好似每次都唔多出聲，但我就係有認真聽你係電話個邊嘅zizizum㗎！不過次次我哋都好似好眼瞓咁，有啲心痛喔💔</p>
-                            <p>仲有仲有，你每次都主動搵我傾計wts我好開心！！！！真係！！！！</p>
-                            <p>btw 希望可以喺你嘅18歲見一次Lemon（yiu know what i mean，i guess😏）</p>
-                            <p style="text-align: right;"><strong>By Your Dear 雅麗</strong></p>
-                   </div>
+                        <p>Hey 親愛的曉晴：</p>
+                        <p>你近來好嗎？今天是5月6號，相傳今日係一個大大大日子，你知唔知係咩呢？</p>
+                        <p>冇錯，就係你大名鼎鼎 <strong>KITTY LAM</strong> 嘅18歲生日！！！！！</p>
+                        <p style="color: #ff4d4d; font-weight: bold; font-size: 1.1em;">祝你18歲成年生日快樂呀！！！！！！！！</p>
+                        <p>即使成年之前嘅你幽默得嚟又傻傻地，但我堅信，坐喺你隔離嘅我日日都含情脈脈咁望住你㗎😋</p>
+                        <p>你18歲之後嘅人生一定會一帆風順心想事成，唔會再有麻煩事煩到你！！！！</p>
+                        <p>好似識咗你之後我打電話嘅程度直線上升（？？）每次一call就係冇半個鐘唔使cut咁樣。雖然我好似每次都唔多出聲，但我就係有認真聽你係電話個邊嘅zizizum㗎！不過次次我哋都好似好眼瞓咁，有啲心痛喔💔</p>
+                        <p>仲有仲有，你每次都主動搵我傾計wts我好開心！！！！真係！！！！</p>
+                        <p>btw 希望可以喺你嘅18歲見一次Lemon（yiu know what i mean, i guess😏）</p>
+                        <br>
+                        <p style="text-align: right;"><strong>By Your Dear 雅麗</strong></p>
+                    </div>
                 </div>
             </div>
 
             <div class="tab-content" id="music">
-                <h2>Songs that remind me of you</h2>
+                <h2>Songs for you</h2>
                 <div class="song">
                     <div class="song-icon">🎵</div>
-                    <div class="song-info">
-                        <h4>Hiwaga</h4>
-                        <p>by Tatin DC</p>
-                    </div>
-                </div>
-                <div class="song">
-                    <div class="song-icon">🎵</div>
-                    <div class="song-info">
-                        <h4>Wish</h4>
-                        <p>by 16</p>
-                    </div>
+                    <div class="song-info"><h4>Your Birthday Song</h4><p>Playing in the background...</p></div>
                 </div>
             </div>
 
             <div class="tab-content" id="notes">
                 <h2>Some reminders</h2>
-                <div class="note">
-                    <p>Take care always</p>
-                </div>
-                <div class="note">
-                    <p>Eat on time</p>
-                </div>
-                <div class="note">
-                    <p>You're mine.. always</p>
-                </div>
+                <div class="note"><p>Take care always</p></div>
+                <div class="note"><p>Eat on time</p></div>
+                <div class="note"><p>Happy 18th Birthday!</p></div>
             </div>
 
             <div class="tab-content" id="gallery">
                 <h2>Flowers for you</h2>
                 <div class="gallery">
-                    <div class="gallery-item">
-                        <img
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1eaad721-3375-4d97-a5fa-cbf8a87d60b8.png">
-                    </div>
-                    <div class="gallery-item">
-                        <img
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/73632299-5dde-4ded-805a-88a7dcb4b5e4.png">
-                    </div>
-                    <div class="gallery-item">
-                        <img
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e9890063-b481-46f6-97a1-9fc753211e19.png">
-                    </div>
-                    <div class="gallery-item">
-                        <img
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4bc3dffd-4971-4223-b7e4-3699d2b97bbe.png">
-                    </div>
-                    <div class="gallery-item">
-                        <img
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d0daff3c-1751-492b-9b74-de28ac48d384.png">
-                    </div>
-                    <div class="gallery-item">
-                        <img
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/51f3ca74-2471-403f-bb99-751536acd7d9.png">
-                    </div>
+                    <p style="text-align: center; color: #888; font-style: italic; width: 100%;">
+                        More memories to be added soon...
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 靜態飄浮裝飾 (JS會再生成動態的) -->
     <div class="heart" style="top: 10%; left: 5%;">❤️</div>
-    <div class="heart" style="top: 20%; right: 10%;">❤️</div>
-    <div class="heart" style="bottom: 15%; left: 15%;">❤️</div>
-    <div class="teddy-bear" style="top: 30%; left: 10%;">🧸</div>
     <div class="teddy-bear" style="bottom: 10%; right: 5%;">🧸</div>
 
     <script src="./script.js"></script>
 </body>
-
 </html>
