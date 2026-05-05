@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Love - 曉晴 18歲生日快樂</title>
-    <!-- 引入字體同埋 CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <!-- 音樂播放器：src 必須同你上傳嘅檔名一樣 -->
+    <!-- 音樂播放器 -->
     <audio id="bg-music" loop>
         <source src="birthday-song.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- 密碼輸入層 -->
     <div class="password-modal" id="passwordModal">
         <div class="password-content">
             <h2>Enter the secret code</h2>
@@ -23,21 +21,20 @@
         </div>
     </div>
 
-    <!-- 歡迎過場畫面 -->
     <div class="welcome-screen" id="welcomeScreen">
         <h1 class="welcome-message">Welcome my love, enjoy your stay</h1>
     </div>
 
-    <!-- 主內容區 -->
     <div class="container" id="mainContent" style="display: none;">
         <div class="tabs">
             <button class="tab active" data-tab="love-letter"><span>❤️</span> Love Letter</button>
+            <button class="tab" data-tab="gallery"><span>📸</span> Gallery</button>
             <button class="tab" data-tab="music"><span>🎵</span> Music</button>
             <button class="tab" data-tab="notes"><span>📝</span> Notes</button>
         </div>
 
         <div class="content-area">
-            <!-- 1. 情書分頁 -->
+            <!-- 1. Love Letter (完整心聲版) -->
             <div class="tab-content active" id="love-letter">
                 <h2>My Dearest</h2>
                 <div class="letter" id="loveLetter">
@@ -54,26 +51,46 @@
                         <p>你18歲之後嘅人生一定會一帆風順心想事成，唔會再有麻煩事煩到你！！！！</p>
                         <p>好似識咗你之後我打電話嘅程度直線上升（？？）每次一call就係冇半個鐘唔使cut咁樣。雖然我好似每次都唔多出聲，但我就係有認真聽你係電話個邊嘅zizizum㗎！不過次次我哋都好似好眼瞓咁，有啲心痛喔💔</p>
                         <p>仲有仲有，你每次都主動搵我傾計wts我好開心！！！！真係！！！！</p>
-                        <p>btw 希望可以喺你嘅18歲見一次Lemon（you know what i mean, i guess😏）</p>
+                        <p>btw 希望可以喺你嘅18歲見一次Lemon（you know what i mean，i guess😏）</p>
                         <br>
                         <p style="text-align: right;"><strong>By Your Dear 雅麗</strong></p>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. 音樂分頁 -->
+            <!-- 2. Gallery (對應 18 張相片) -->
+            <div class="tab-content" id="gallery">
+                <h2>Our Memories</h2>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="IMG_8219.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_8775.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_8907.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_8910.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_8975.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9040.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9571.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9573.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9600.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9601.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9603.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9610.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9611.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9630.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9659.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9697.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9698.jpeg" alt="Memory"></div>
+                    <div class="photo-item"><img src="IMG_9710.jpeg" alt="Memory"></div>
+                </div>
+            </div>
+
+            <!-- 其餘 Music 同 Notes 保持不變... -->
             <div class="tab-content" id="music">
                 <h2>Your Special Song</h2>
                 <div class="song">
                     <div class="song-icon">🎵</div>
-                    <div class="song-info">
-                        <h4>Music is playing...</h4>
-                        <p>18歲的專屬旋律</p>
-                    </div>
+                    <div class="song-info"><h4>Music is playing...</h4><p>Enjoy the melody, Kitty!</p></div>
                 </div>
             </div>
-
-            <!-- 3. 備忘錄分頁 -->
             <div class="tab-content" id="notes">
                 <h2>Some reminders</h2>
                 <div class="note"><p>日日開開心心</p></div>
@@ -82,9 +99,6 @@
             </div>
         </div>
     </div>
-
-    <!-- 引入 JavaScript -->
     <script src="./script.js"></script>
 </body>
 </html>
-
