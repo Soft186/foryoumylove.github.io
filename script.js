@@ -18,20 +18,18 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.addEventListener('click', unlock);
     passwordInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') unlock(); });
 
-    // 飄浮元素 (心心 + 水獺)
-    const icons = ['❤️', '🦦', '✨', '💖'];
+    // 🦦 水獺動畫
     for (let i = 0; i < 20; i++) {
         const el = document.createElement('div');
-        el.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-        el.style.cssText = `position:fixed; left:${Math.random()*100}vw; top:${Math.random()*100}vh; font-size:24px; z-index:-1; opacity:0.4; animation: float 3s infinite ease-in-out;`;
+        el.innerHTML = ['❤️', '🦦', '✨', '💖'][Math.floor(Math.random() * 4)];
+        el.style.cssText = `position:fixed; left:${Math.random()*100}vw; top:${Math.random()*100}vh; font-size:25px; z-index:-1; opacity:0.4; animation: float 4s infinite ease-in-out;`;
         document.body.appendChild(el);
     }
 
     // Tabs 切換
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(t => {
+    document.querySelectorAll('.tab').forEach(t => {
         t.addEventListener('click', () => {
-            tabs.forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             t.classList.add('active');
             document.getElementById(t.dataset.tab).classList.add('active');
