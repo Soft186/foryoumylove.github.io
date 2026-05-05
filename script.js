@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     submitPassword.addEventListener('click', function() {
         // 如果想改密碼，請改下面這一行
-        if (passwordInput.value.toLowerCase() === 'kitty0506') { 
+        if (passwordInput.value.toLowerCase() === 'hehe') { 
             
             // 重要：透過 iframe 啟動音樂
             const musicIframe = document.getElementById('video-music');
