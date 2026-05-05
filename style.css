@@ -1,21 +1,17 @@
-/* 1. 基礎設定與字體 */
 :root {
-    --primary-pink: #ffb6c1;      /* 淺粉紅 */
-    --dark-pink: #ff8fa3;         /* 深粉紅 */
-    --bg-color: #fff5f7;          /* 極淺粉紅背景 */
-    --glass-bg: rgba(255, 255, 255, 0.8);
+    --primary-pink: #ffb6c1;
+    --dark-pink: #ff8fa3;
+    --bg-color: #fff5f7;
 }
 
 body {
     margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', 'Microsoft JhengHei', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: var(--bg-color);
     color: #444;
-    overflow-x: hidden; /* 防止水獺飛出界出現橫向捲軸 */
+    overflow-x: hidden;
 }
 
-/* 2. 密碼登入層 */
 .password-modal {
     position: fixed;
     inset: 0;
@@ -30,40 +26,28 @@ body {
 .password-content {
     text-align: center;
     background: white;
-    padding: 40px;
-    border-radius: 25px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    width: 80%;
-    max-width: 350px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .password-input {
-    padding: 12px;
+    padding: 10px;
     border: 2px solid var(--primary-pink);
-    border-radius: 12px;
-    margin: 20px 0;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    font-size: 1rem;
+    border-radius: 8px;
+    margin: 15px 0;
+    width: 180px;
 }
 
 .submit-btn {
     background: var(--dark-pink);
     color: white;
     border: none;
-    padding: 12px 30px;
-    border-radius: 12px;
+    padding: 8px 20px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 600;
-    transition: transform 0.2s;
 }
 
-.submit-btn:active {
-    transform: scale(0.95);
-}
-
-/* 3. 歡迎過場畫面 */
 .welcome-screen {
     position: fixed;
     inset: 0;
@@ -72,180 +56,76 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 900;
-    transition: opacity 0.8s ease;
 }
 
-.welcome-message {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.2rem;
-    color: var(--dark-pink);
-    text-align: center;
-    padding: 0 20px;
-}
-
-/* 4. 主內容容器 */
 .container {
     max-width: 600px;
-    margin: 20px auto;
+    margin: auto;
     padding: 20px;
 }
 
-/* 5. 分頁掣 (Tabs) */
 .tabs {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-    background: var(--glass-bg);
-    padding: 8px;
-    border-radius: 50px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    backdrop-filter: blur(5px);
+    justify-content: space-around;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 30px;
+    padding: 5px;
 }
 
 .tab {
     background: none;
     border: none;
-    padding: 10px 15px;
+    padding: 10px;
     cursor: pointer;
-    font-weight: 600;
-    color: #a0a0a0;
-    transition: 0.3s;
-    font-size: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.tab span {
-    font-size: 1.2rem;
-    margin-bottom: 4px;
+    font-weight: bold;
+    color: #aaa;
 }
 
 .tab.active {
     color: var(--dark-pink);
-    transform: translateY(-3px);
 }
 
-/* 6. 內容區域樣式 */
-.content-area {
-    animation: fadeIn 0.8s ease;
+/* 相簿：維持原格式比例但填滿正方形 */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
 }
 
-.tab-content {
-    display: none;
+.photo-item {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 3px solid white;
 }
 
-.tab-content.active {
-    display: block;
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-h2 {
-    color: var(--dark-pink);
-    text-align: center;
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-/* 7. 情書樣式 */
 .letter {
     background: white;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.letter-header {
-    text-align: center;
-}
-
-.letter-header h3 {
-    margin: 0;
-    color: var(--dark-pink);
-}
-
-.letter-header span {
-    font-size: 0.8rem;
-    color: #bbb;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .letter-content {
     display: none;
-    margin-top: 20px;
-    line-height: 1.8;
-    color: #555;
-    border-top: 1px dashed var(--primary-pink);
-    padding-top: 15px;
+    margin-top: 15px;
+    line-height: 1.6;
 }
 
 .letter.expanded .letter-content {
     display: block;
 }
 
-/* 8. 18 張相片網格 (Gallery) */
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 12px;
-}
-
-.photo-item {
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 15px;
-    border: 4px solid white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    background: #eee;
-}
-
-.photo-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 確保人像唔會變扁 */
-    transition: transform 0.5s ease;
-}
-
-.photo-item:hover img {
-    transform: scale(1.1);
-}
-
-/* 9. 音樂與備忘錄樣式 */
-.song, .note {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-}
-
-.song-icon {
-    font-size: 2rem;
-    margin-right: 15px;
-}
-
-.note p {
-    margin: 0;
-    font-weight: 500;
-}
-
-/* 10. 動畫效果 (包含水獺飄浮) */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes float {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(10deg); }
-    100% { transform: translateY(0) rotate(0deg); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
-/* 呢個 Class 會由 JS 動態加落去水獺同心心度 */
-.floating-icon {
-    pointer-events: none;
-    user-select: none;
-}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
