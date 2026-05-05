@@ -7,6 +7,21 @@
     <title>For My Love - 曉晴 18歲生日快樂</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <style>
+        /* 簡單美化播放按鈕 */
+        .play-music-btn {
+            background-color: #ffb7c5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .play-music-btn:hover { background-color: #ff4d4d; }
+    </style>
 </head>
 
 <body>
@@ -32,11 +47,9 @@
             <button class="tab active" data-tab="love-letter"><span>❤️</span> Love Letter</button>
             <button class="tab" data-tab="music"><span>🎵</span> Music</button>
             <button class="tab" data-tab="notes"><span>📝</span> Notes</button>
-            <!-- Gallery Tab 已刪除 -->
         </div>
 
         <div class="content-area">
-            <!-- 情書 -->
             <div class="tab-content active" id="love-letter">
                 <h2>My Dearest</h2>
                 <div class="letter" id="loveLetter">
@@ -51,7 +64,7 @@
                         <p style="color: #ff4d4d; font-weight: bold; font-size: 1.1em;">祝你18歲成年生日快樂呀！！！！！！！！</p>
                         <p>即使成年之前嘅你幽默得嚟又傻傻地，但我堅信，坐喺你隔離嘅我日日都含情脈脈咁望住你㗎😋</p>
                         <p>你18歲之後嘅人生一定會一帆風順心想事成，唔會再有麻煩事煩到你！！！！</p>
-                        <p>好似識咗你之後我打電話嘅程度直線上升（？？）每次一call就係冇半個鐘唔使cut咁樣。雖然我好似每次都唔多出聲，但我就係有認真聽你係電話個邊嘅zizizum㗎！不過次次我哋都好似好眼瞓咁，有啲心痛喔💔</p>
+                        <p>好似識咗你之後我打電話嘅程度直線上升（？？）每次一call就係冇半個鐘唔使cut咁樣。雖然我好似每次都唔多出聲，但我就係有認真聽你係電話個邊嘅zizizum㗎！ 不過次次我哋都好似好眼瞓咁，有啲心痛喔💔</p>
                         <p>仲有仲有，你每次都主動搵我傾計wts我好開心！！！！真係！！！！</p>
                         <p>btw 希望可以喺你嘅18歲見一次Lemon（you know what i mean, i guess😏）</p>
                         <br>
@@ -61,22 +74,22 @@
             </div>
 
             <div class="tab-content" id="music">
-                <h2>Songs for you</h2>
+                <h2>Your Special Song</h2>
                 <div class="song">
                     <div class="song-icon">🎵</div>
-                    <div class="song-info"><h4>Your Birthday BGM</h4><p>Playing automatically...</p></div>
+                    <div class="song-info">
+                        <h4>Click below to play</h4>
+                        <button class="play-music-btn" id="playMusicBtn">▶ Play Music</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Notes 內容已更新 -->
             <div class="tab-content" id="notes">
                 <h2>Some reminders</h2>
                 <div class="note"><p>日日開開心心</p></div>
                 <div class="note"><p>飲多啲熱水</p></div>
                 <div class="note"><p>18歲生日大快樂</p></div>
             </div>
-            
-            <!-- Gallery Content 已刪除 -->
         </div>
     </div>
 
