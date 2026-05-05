@@ -1,42 +1,47 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const bgMusic = document.getElementById('bg-music');
-    const passwordInput = document.getElementById('passwordInput');
-    const submitBtn = document.getElementById('submitPassword');
+    const music = document.getElementById('bg-music');
+    const modal = document.getElementById('passwordModal');
+    const welcome = document.getElementById('welcomeScreen');
+    const main = document.getElementById('mainContent');
 
-    function unlock() {
-        if (passwordInput.value.toLowerCase() === 'kitty0506') {
-            if (bgMusic) bgMusic.play();
-            document.getElementById('passwordModal').style.display = 'none';
-            document.getElementById('welcomeScreen').style.display = 'flex';
+    // 1. 密碼登入
+    document.getElementById('submitPassword').onclick = function() {
+        const pin = document.getElementById('passwordInput').value.toLowerCase();
+        if(pin === 'kitty0506') {
+            if(music) music.play();
+            modal.style.display = 'none';
+            welcome.style.display = 'flex';
             setTimeout(() => {
-                document.getElementById('welcomeScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
+                welcome.style.opacity = '0';
+                setTimeout(() => {
+                    welcome.style.display = 'none';
+                    main.style.display = 'block';
+                }, 800);
             }, 2000);
         }
+    };
+
+    // 2. 生成水獺與心心 (🦦)
+    const icons = ['❤️', '🦦', '✨', '💖'];
+    for (let i = 0; i < 15; i++) {
+        const div = document.createElement('div');
+        div.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+        div.style.cssText = `position:fixed; left:${Math.random()*100}vw; top:${Math.random()*100}vh; font-size:20px; z-index:-1; opacity:0.3; animation: float ${3+Math.random()*2}s infinite ease-in-out;`;
+        document.body.appendChild(div);
     }
 
-    submitBtn.addEventListener('click', unlock);
-    passwordInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') unlock(); });
-
-    // 🦦 水獺動畫
-    for (let i = 0; i < 20; i++) {
-        const el = document.createElement('div');
-        el.innerHTML = ['❤️', '🦦', '✨', '💖'][Math.floor(Math.random() * 4)];
-        el.style.cssText = `position:fixed; left:${Math.random()*100}vw; top:${Math.random()*100}vh; font-size:25px; z-index:-1; opacity:0.4; animation: float 4s infinite ease-in-out;`;
-        document.body.appendChild(el);
-    }
-
-    // Tabs 切換
-    document.querySelectorAll('.tab').forEach(t => {
-        t.addEventListener('click', () => {
-            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    // 3. Tab 切換
+    document.querySelectorAll('.tab').forEach(btn => {
+        btn.onclick = function() {
+            document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            t.classList.add('active');
-            document.getElementById(t.dataset.tab).classList.add('active');
-        });
+            this.classList.add('active');
+            document.getElementById(this.dataset.tab).classList.add('active');
+        };
     });
 
-    document.getElementById('loveLetter').addEventListener('click', function() {
+    // 4. 打開情書
+    document.getElementById('loveLetter').onclick = function() {
         this.classList.toggle('expanded');
-    });
+    };
 });
