@@ -7,13 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const playMusicBtn = document.getElementById('playMusicBtn');
     const musicIframe = document.getElementById('video-music');
 
-    // 播放音樂的函式
-    function startMusic() {
-        if (musicIframe) {
-            musicIframe.src = "https://www.youtube.com/embed/VRpzJabYlQQ?autoplay=1&mute=0";
-        }
-    }
-
+    // 密碼驗證邏輯
     submitPassword.addEventListener('click', function() {
         if (passwordInput.value.toLowerCase() === 'kitty0506') { 
             passwordModal.style.opacity = '0';
@@ -35,11 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 點擊音樂按鈕時播放
+    // 關鍵修正：點擊按鈕時「重新注入」最乾淨的 YouTube Embed 網址
     playMusicBtn.addEventListener('click', function() {
-        startMusic();
-        this.innerHTML = "🎵 Playing...";
+        // 使用最精簡的 Embed 網址格式
+        const youtubeId = "VRpzJabYlQQ";
+        musicIframe.src = "https://www.youtube.com/embed/" + youtubeId + "?autoplay=1&controls=1&enablejsapi=1";
+        
+        this.innerHTML = "🎵 Loading & Playing...";
         this.style.backgroundColor = "#ff4d4d";
+        
+        // 為了保證萬無一失，1秒後再檢查一次按鈕文字
+        setTimeout(() => {
+            this.innerHTML = "🎵 Music Started";
+        }, 2000);
     });
 
     passwordInput.addEventListener('keypress', function(e) {
