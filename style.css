@@ -20,42 +20,30 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    transition: opacity 0.6s ease;
 }
 
 .password-content {
-    text-align: center;
     background: white;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 .password-input {
     padding: 10px;
+    margin: 15px 0;
     border: 2px solid var(--primary-pink);
     border-radius: 8px;
-    margin: 15px 0;
-    width: 180px;
+    width: 200px;
 }
 
 .submit-btn {
     background: var(--dark-pink);
     color: white;
     border: none;
-    padding: 8px 20px;
+    padding: 10px 25px;
     border-radius: 8px;
     cursor: pointer;
-}
-
-.welcome-screen {
-    position: fixed;
-    inset: 0;
-    background: white;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 900;
 }
 
 .container {
@@ -67,71 +55,52 @@ body {
 .tabs {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
     background: white;
     border-radius: 30px;
-    padding: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
 .tab {
     background: none;
     border: none;
-    padding: 10px;
     cursor: pointer;
-    font-weight: bold;
-    color: #aaa;
+    font-weight: 600;
+    color: #bbb;
 }
 
 .tab.active {
     color: var(--dark-pink);
 }
 
-/* 相簿：維持原格式比例但填滿正方形 */
-/* Gallery Tab */
-.photo {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
+/* 相簿：原原本本比例，唔會被 CUT */
+.photo-grid {
+    column-count: 2; /* 瀑布流排版：兩行展示 */
+    column-gap: 10px;
 }
 
 .photo-item {
-    border-radius: 10px;
-    overflow: hidden;
-    height: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.photo-item:hover {
-    transform: scale(1.05);
+    break-inside: avoid; /* 防止相片被分割 */
+    margin-bottom: 10px;
 }
 
 .photo-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.letter {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-}
-
-.letter-content {
-    display: none;
-    margin-top: 15px;
-    line-height: 1.6;
-}
-
-.letter.expanded .letter-content {
+    width: 100%;       /* 闊度填滿一行 */
+    height: auto;      /* 高度自動，維持原比例 */
     display: block;
+    border-radius: 12px;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
+.letter { background: white; padding: 25px; border-radius: 15px; }
+.letter-content { display: none; margin-top: 20px; line-height: 1.8; }
+.letter.expanded .letter-content { display: block; }
 
 .tab-content { display: none; }
 .tab-content.active { display: block; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
