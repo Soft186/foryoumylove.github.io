@@ -1,21 +1,24 @@
+/* 全局字體設定 */
 :root {
-    --primary-pink: #ffb6c1;
-    --dark-pink: #ff8fa3;
-    --bg-color: #fff5f7;
+    --accent: #ff8fa3;
+    --soft-white: rgba(255, 255, 255, 0.9);
 }
 
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--bg-color);
-    color: #444;
-    overflow-x: hidden;
+    background: #fff5f7;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
 }
 
+.dancing-font { font-family: 'Dancing Script', cursive; }
+
+/* 登入 Modal */
 .password-modal {
     position: fixed;
     inset: 0;
-    background: var(--primary-pink);
+    background: #ffb6c1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,83 +27,112 @@ body {
 
 .password-content {
     background: white;
-    padding: 30px;
+    padding: 2rem;
     border-radius: 20px;
     text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .password-input {
-    padding: 10px;
-    margin: 15px 0;
-    border: 2px solid var(--primary-pink);
-    border-radius: 8px;
+    display: block;
     width: 200px;
+    margin: 1rem auto;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    outline: none;
 }
 
-.submit-btn {
-    background: var(--dark-pink);
+#submitPassword {
+    background: var(--accent);
     color: white;
     border: none;
-    padding: 10px 25px;
+    padding: 8px 25px;
     border-radius: 8px;
     cursor: pointer;
 }
 
+/* 歡迎畫面 */
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+    background: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* 主佈局 */
 .container {
-    max-width: 600px;
-    margin: auto;
+    max-width: 500px;
+    margin: 0 auto;
     padding: 20px;
 }
 
+/* 原版 Tabs 設計 */
 .tabs {
     display: flex;
     justify-content: space-around;
-    background: white;
-    border-radius: 30px;
+    background: var(--soft-white);
     padding: 10px;
-    margin-bottom: 20px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    backdrop-filter: blur(10px);
 }
 
 .tab {
     background: none;
     border: none;
-    cursor: pointer;
-    font-weight: 600;
     color: #bbb;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.tab.active {
-    color: var(--dark-pink);
+.tab span { font-size: 1.2rem; margin-bottom: 3px; }
+.tab.active { color: var(--accent); }
+
+/* Card 設計 (原版設計風格) */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    margin-bottom: 15px;
 }
 
-/* 相簿：原原本本比例，唔會被 CUT */
+.highlight-text { color: #ff4d4d; font-weight: 600; }
+.click-hint { font-size: 0.75rem; color: #ccc; text-align: center; }
+
+/* 瀑布流相簿：唔會 Cut 到曉晴啲相 */
 .photo-grid {
-    column-count: 2; /* 瀑布流排版：兩行展示 */
+    column-count: 2;
     column-gap: 10px;
 }
 
 .photo-item {
-    break-inside: avoid; /* 防止相片被分割 */
+    break-inside: avoid;
     margin-bottom: 10px;
 }
 
 .photo-item img {
-    width: 100%;       /* 闊度填滿一行 */
-    height: auto;      /* 高度自動，維持原比例 */
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
     display: block;
-    border-radius: 12px;
-    border: 3px solid white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.letter { background: white; padding: 25px; border-radius: 15px; }
-.letter-content { display: none; margin-top: 20px; line-height: 1.8; }
-.letter.expanded .letter-content { display: block; }
-
-.tab-content { display: none; }
+/* 其他內容樣式 */
+.letter-body { display: none; line-height: 1.7; margin-top: 15px; }
+.letter.expanded .letter-body { display: block; }
+.tab-content { display: none; animation: fadeIn 0.4s ease; }
 .tab-content.active { display: block; }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
