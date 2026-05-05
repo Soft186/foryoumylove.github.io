@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love</title>
-    <!-- 核心字體：Montserrat (現代感) 同 Dancing Script (浪漫標題) -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>For My Love - 曉晴 18歲生日快樂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,21 +12,18 @@
         <source src="birthday-song.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- 1. 密碼登入 -->
     <div class="password-modal" id="passwordModal">
         <div class="password-content">
-            <h2 class="dancing-font">Enter the secret code</h2>
-            <input type="password" id="passwordInput" placeholder="Our special word...">
-            <button id="submitPassword">Enter</button>
+            <h2>Enter the secret code</h2>
+            <input type="password" class="password-input" id="passwordInput" placeholder="Our special word...">
+            <button class="submit-btn" id="submitPassword">Enter</button>
         </div>
     </div>
 
-    <!-- 2. 歡迎畫面 -->
     <div class="welcome-screen" id="welcomeScreen">
-        <h1 class="dancing-font">Welcome my love, enjoy your stay</h1>
+        <h1 class="welcome-message">Welcome my love, enjoy your stay</h1>
     </div>
 
-    <!-- 3. 主內容 -->
     <div class="container" id="mainContent" style="display: none;">
         <div class="tabs">
             <button class="tab active" data-tab="love-letter"><span>❤️</span> Love Letter</button>
@@ -37,19 +33,18 @@
         </div>
 
         <div class="content-area">
-            <!-- Love Letter: 100% 完整文字，一字不漏 -->
+            <!-- Love Letter: 100% 完整內容 -->
             <div class="tab-content active" id="love-letter">
-                <h2 class="dancing-font">My Dearest</h2>
-                <div class="card letter" id="loveLetter">
+                <div class="letter" id="loveLetter">
                     <div class="letter-header">
-                        <h3 class="dancing-font">A Letter For You</h3>
-                        <p class="click-hint">👇 Click to open</p>
+                        <h3>A Letter For You</h3>
+                        <span style="font-size: 12px; color: #888;">👇 Click to open</span>
                     </div>
-                    <div class="letter-body">
+                    <div class="letter-content">
                         <p>Hey 親愛的曉晴：</p>
                         <p>你近來好嗎？今天是5月6號，相傳今日係一個大大大日子，你知唔知係咩呢？</p>
                         <p>冇錯，就係你大名鼎鼎 <strong>KITTY LAM</strong> 嘅18歲生日！！！！！</p>
-                        <p class="highlight-text">祝你18歲成年生日快樂呀！！！！！！！！</p>
+                        <p style="color: #d81b60; font-weight: bold;">祝你18歲成年生日快樂呀！！！！！！！！</p>
                         <p>即使成年之前嘅你幽默得嚟又傻傻地，但我堅信，坐喺你隔離嘅我日日都含情脈脈咁望住你㗎😋你18歲之後嘅人生一定會一帆風順心想事成，唔會再有麻煩事煩到你！！！！</p>
                         <p>好似識咗你之後我打電話嘅程度直線上升（？？）每次一call就係冇半個鐘唔使cut咁樣。雖然我好似每次都唔多出聲，但我就係有認真聽你係電話個邊嘅zizizum㗎！不過次次我哋都好似好眼瞓咁，有啲心痛喔💔</p>
                         <p>仲有仲有，你每次都主動搵我傾計wts我好開心！！！！真係！！！！</p>
@@ -60,49 +55,46 @@
                 </div>
             </div>
 
-            <!-- Gallery: 18張 .jpeg，原比例顯示 -->
+            <!-- Gallery: 18 張相片 (配合原版 gallery class) -->
             <div class="tab-content" id="gallery">
-                <h2 class="dancing-font">Our Memories</h2>
-                <div class="photo-grid">
-                    <div class="photo-item"><img src="IMG_8219.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_8775.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_8907.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_8910.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_8975.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9040.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9571.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9573.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9600.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9601.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9603.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9610.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9611.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9630.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9659.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9697.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9698.jpeg" alt=""></div>
-                    <div class="photo-item"><img src="IMG_9710.jpeg" alt=""></div>
+                <div class="gallery">
+                    <div class="gallery-item"><img src="IMG_8219.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_8775.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_8907.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_8910.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_8975.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9040.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9571.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9573.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9600.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9601.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9603.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9610.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9611.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9630.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9659.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9697.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9698.jpeg"></div>
+                    <div class="gallery-item"><img src="IMG_9710.jpeg"></div>
                 </div>
             </div>
 
             <!-- Music -->
             <div class="tab-content" id="music">
-                <h2 class="dancing-font">Your Special Song</h2>
-                <div class="card song-card">
-                    <div class="music-icon">🎵</div>
-                    <div>
-                        <p class="song-title">Music is playing...</p>
-                        <p class="song-desc">Enjoy the melody, Kitty!</p>
+                <div class="song">
+                    <div class="song-icon">🎵</div>
+                    <div class="song-info">
+                        <h4>Music is playing...</h4>
+                        <p>Enjoy the melody, Kitty!</p>
                     </div>
                 </div>
             </div>
 
             <!-- Notes -->
             <div class="tab-content" id="notes">
-                <h2 class="dancing-font">Some Reminders</h2>
-                <div class="card note-card"><p>日日開開心心</p></div>
-                <div class="card note-card"><p>飲多啲熱水</p></div>
-                <div class="card note-card"><p>18歲生日大快樂</p></div>
+                <div class="note"><p>日日開開心心</p></div>
+                <div class="note"><p>飲多啲熱水</p></div>
+                <div class="note"><p>18歲生日大快樂</p></div>
             </div>
         </div>
     </div>
