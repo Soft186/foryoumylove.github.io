@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitPassword = document.getElementById('submitPassword');
 
     submitPassword.addEventListener('click', function() {
-        if (passwordInput.value.toLowerCase() === 'babycakes') {
+        if (passwordInput.value.toLowerCase() === 'Kitty0506') {
             passwordModal.style.opacity = '0';
             setTimeout(() => {
                 passwordModal.style.display = 'none';
