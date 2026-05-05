@@ -1,47 +1,47 @@
 document.addEventListener('DOMContentLoaded', function() {
     const music = document.getElementById('bg-music');
-    const modal = document.getElementById('passwordModal');
-    const welcome = document.getElementById('welcomeScreen');
-    const main = document.getElementById('mainContent');
+    const submitBtn = document.getElementById('submitPassword');
+    const passwordInput = document.getElementById('passwordInput');
 
-    // 1. 密碼登入
-    document.getElementById('submitPassword').onclick = function() {
-        const pin = document.getElementById('passwordInput').value.toLowerCase();
-        if(pin === 'kitty0506') {
-            if(music) music.play();
-            modal.style.display = 'none';
-            welcome.style.display = 'flex';
+    // 1. 解鎖邏輯
+    submitBtn.onclick = function() {
+        if (passwordInput.value.toLowerCase() === 'kitty0506') {
+            if (music) music.play();
+            document.getElementById('passwordModal').style.opacity = '0';
             setTimeout(() => {
-                welcome.style.opacity = '0';
+                document.getElementById('passwordModal').style.display = 'none';
                 setTimeout(() => {
-                    welcome.style.display = 'none';
-                    main.style.display = 'block';
-                }, 800);
-            }, 2000);
+                    document.getElementById('welcomeScreen').style.opacity = '0';
+                    setTimeout(() => {
+                        document.getElementById('welcomeScreen').style.display = 'none';
+                        document.getElementById('mainContent').style.display = 'block';
+                    }, 800);
+                }, 2000);
+            }, 500);
         }
     };
 
-    // 2. 生成水獺與心心 (🦦)
-    const icons = ['❤️', '🦦', '✨', '💖'];
-    for (let i = 0; i < 15; i++) {
-        const div = document.createElement('div');
-        div.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-        div.style.cssText = `position:fixed; left:${Math.random()*100}vw; top:${Math.random()*100}vh; font-size:20px; z-index:-1; opacity:0.3; animation: float ${3+Math.random()*2}s infinite ease-in-out;`;
-        document.body.appendChild(div);
-    }
-
-    // 3. Tab 切換
-    document.querySelectorAll('.tab').forEach(btn => {
-        btn.onclick = function() {
-            document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    // 2. Tab 切換
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            this.classList.add('active');
-            document.getElementById(this.dataset.tab).classList.add('active');
-        };
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
     });
 
-    // 4. 打開情書
+    // 3. 信件展開
     document.getElementById('loveLetter').onclick = function() {
         this.classList.toggle('expanded');
     };
+
+    // 4. 加返啲 🦦 飄浮效果
+    const symbols = ['❤️', '🦦', '✨', '💖'];
+    for (let i = 0; i < 15; i++) {
+        const el = document.createElement('div');
+        el.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+        el.style.cssText = `position:fixed; left:${Math.random()*100}vw; top:${Math.random()*100}vh; font-size:24px; z-index:1; opacity:0.2; pointer-events:none; animation: float 5s infinite ease-in-out;`;
+        document.body.appendChild(el);
+    }
 });
