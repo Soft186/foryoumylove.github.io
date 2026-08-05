@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 2500);
             }, 500);
         } else {
-            passwordInput.value = '';
+            passwordInput.value = '01 05 2025';
             passwordInput.placeholder = 'Try again, my love...';
             passwordInput.style.borderColor = '#ff4d4d';
             setTimeout(() => {
                 passwordInput.style.borderColor = '#ffb7c5';
-                passwordInput.placeholder = 'Our special word...';
+                passwordInput.placeholder = 'Our anniversary...';
             }, 1500);
         }
     });
